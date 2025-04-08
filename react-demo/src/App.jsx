@@ -12,7 +12,11 @@ import Product from './components/Product';
 import Card from './components/Card/Card';
 import Weather from './components/Weather';
 import UserStatus from './components/UserStatus';
-import { useState } from 'react';
+import Counter from './Counter';
+import TodoList from './components/TodoList';
+import RandomNumber from './components/RandomNumber';
+import ProfileNew from './components/ProfileNew';
+import ShoopingList from './components/ShoopingList';
 
 // const ValidPassword = () => <h1>Valid Password</h1>;
 // const InvalidPassword = () => <h1>InValid Password</h1>;
@@ -22,28 +26,9 @@ import { useState } from 'react';
 // };
 
 const App = () => {
-  const [friends, setfriends] = useState(['Alex', 'Shima']);
-
-  const addFriend = () => {
-    setfriends([...friends, 'Shiya']);
-  };
-  const rmFriend = () => {
-    setfriends(friends.filter((friend) => friend !== 'Alex'));
-  };
-  const upFriend = () => {
-    setfriends(friends.map((f) => (f === 'Shiya' ? 'Shiya Kuwor' : f)));
-  };
   return (
     <div>
-      {friends.map((f) => (
-        <ul key={Math.random()}>
-          <li>{f}</li>
-        </ul>
-      ))}
-
-      <button onClick={addFriend}>Add Friend</button>
-      <button onClick={rmFriend}>Remove Friend</button>
-      <button onClick={upFriend}>Update Friend</button>
+      <ShoopingList />
     </div>
   );
 };

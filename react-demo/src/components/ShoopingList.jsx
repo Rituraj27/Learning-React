@@ -1,12 +1,20 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 
 const ShoopingList = () => {
-  const [name, setName] = useState('');
   const [items, setItems] = useState([]);
+  const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (!name || !quantity) return;
+    const newItem = {
+      name,
+      quantity: parseInt(quantity),
+    };
+    setItems((prevItems) => [...prevItems, newItem]);
+    setName('');
+    setQuantity('');
   };
   return (
     <div>
@@ -14,11 +22,13 @@ const ShoopingList = () => {
       <form>
         <input
           type='text'
+          value={name}
           placeholder='Enter your Product'
-          onChange={(e) => setItems(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type='number'
+          value={quantity}
           placeholder='Enter your quantity'
           onChange={(e) => setQuantity(e.target.value)}
         />
@@ -26,6 +36,14 @@ const ShoopingList = () => {
           Add
         </button>
       </form>
+
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            {item.name} : Quantitiy - {item.quantity}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

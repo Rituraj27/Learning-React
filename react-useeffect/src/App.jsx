@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import FetchData from './Components/FetchData';
+import FetchingData from './Components/FetchingData';
+import UseEffectButton from './Components/UseEffectButton';
 
 const App = () => {
-  const [inputValue, setInputValue] = useState(0);
-
-  useEffect(() => {
-    console.log('UseEffected Called');
-    document.title = inputValue;
-  }, [inputValue]);
-
   return (
     <div>
-      <h1>{inputValue}</h1>
-      <button onClick={() => setInputValue(inputValue + 1)}>Click</button>
+      <UseEffectButton />
+      <FetchingData />
     </div>
   );
 };

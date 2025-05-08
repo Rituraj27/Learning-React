@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createCont } from 'react';
 import ComponentA from './Components/ComponentA';
 import UserProfile from './Components/UserProfile';
 import { UserProvider } from './Components/UserContext';
